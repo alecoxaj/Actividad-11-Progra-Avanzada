@@ -43,6 +43,16 @@ for nit, datos in propietarios.items():
     for plate, v in datos["plate"].items():
         print(f"Placa: {plate} | {v['brand']} {v['model']} | {v['year']} | Impuesto: {v['tax']}")
 
+search_nit = input("\nBúsqueda de propietarios por NIT:")
+if search_nit in propietarios:
+    p = propietarios[search_nit]
+    print(f"\nNombre: {p['name']}\n")
+    print(f"\nTeléfono: {p['phone ']}\n")
+    print('vehicles')
+    for plate, v in p["vehicles"].items():
+        print(f"Placa {plate} | {v['brand']} {v['model']} | {v['year']} | Impuesto: {v['tax']}|")
+
+
 
 
 
