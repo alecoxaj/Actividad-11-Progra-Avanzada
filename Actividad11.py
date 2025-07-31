@@ -27,7 +27,6 @@ for i in range(cantidad_propietarios):
             "year": year,
             "tax": tax_payed,
         }
-
     propietarios[nit] = {
         "name": name,
         "phone ": phone,
@@ -51,6 +50,15 @@ if search_nit in propietarios:
     print('vehicles')
     for plate, v in p["vehicles"].items():
         print(f"Placa {plate} | {v['brand']} {v['model']} | {v['year']} | Impuesto: {v['tax']}|")
+else:
+    print("Propietario no registrado")
+
+pagados = 0
+no_pagados = 0
+
+
+for datos in propietarios.values():
+
 
 
 
