@@ -32,7 +32,7 @@ for j in range(cantidad_vehículos):
 
     propietarios[nit] = {
         "name": name,
-        "phone": phone,
+        "phone ": phone,
     }
 
 print("\nResumen de propietarios: ")
