@@ -29,7 +29,7 @@ for i in range(cantidad_propietarios):
         }
     propietarios[nit] = {
         "name": name,
-        "phone ": phone,
+        "phone": phone,
         "vehicles" : vehicles,
 }
 
@@ -37,28 +37,34 @@ print("\nResumen de propietarios: ")
 for nit, datos in propietarios.items():
     print(f"\nNúmero de NIT: {nit}")
     print(f"Nombre: {datos['name']}\n")
-    print(f"Teléfono: {datos['phone']}\n")
+    print(f"Teléfono: {datos['phone']}")
     print(f"Vehículo: {datos['vehicles']}")
-    for plate, v in datos["plate"].items():
+    print("Vehículos:")
+    for plate, v in datos["vehicles"].items():
         print(f"Placa: {plate} | {v['brand']} {v['model']} | {v['year']} | Impuesto: {v['tax']}")
 
-search_nit = input("\nBúsqueda de propietarios por NIT:")
+search_nit = input("\nBúsqueda de propietarios por NIT: ")
 if search_nit in propietarios:
     p = propietarios[search_nit]
     print(f"\nNombre: {p['name']}\n")
-    print(f"\nTeléfono: {p['phone ']}\n")
-    print('vehicles')
+    print(f"\nTeléfono: {p['phone']}\n")
+    print('Vehículos: ')
     for plate, v in p["vehicles"].items():
-        print(f"Placa {plate} | {v['brand']} {v['model']} | {v['year']} | Impuesto: {v['tax']}|")
+        print(f"Placa: {plate} | {v['brand']} {v['model']} | {v['year']} | Impuesto: {v['tax']}|")
 else:
     print("Propietario no registrado")
 
 pagados = 0
 no_pagados = 0
 
-
 for datos in propietarios.values():
-
+    for v in datos["vehicles"].values():
+        if v["tax"] == "si":
+            pagados += 1
+        else:
+            no_pagados += 1
+    print(f"\nTotal de vehículos con impuesto pagado: {pagados}")
+    print(f"\nTotal de vehículos con impuesto no pagado: {no_pagados}")
 
 
 
